@@ -1,0 +1,9 @@
+---
+  - name: This playbook will add user "bob"
+    hosts: remote-hosts
+    tasks:
+      - name: Add User Bob
+        user:
+          name: bob
+          uid: 1500
+          comment: System Engineer
