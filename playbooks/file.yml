@@ -1,0 +1,9 @@
+---
+  - name: Create an empty file
+    hosts: development
+    tasks:
+      - name: Create a "testfole2" with permission
+        file:
+          path: /tmp/testfile2
+          state: absent
+ #         mode: u=rwx,g=rw,o=r
