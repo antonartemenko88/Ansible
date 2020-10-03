@@ -1,0 +1,5 @@
+# Ignore inventory folder 
+
+inventory
+*inventory
+inventory*
