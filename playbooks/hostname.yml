@@ -1,0 +1,13 @@
+---
+- name: Change hostname
+  hosts: development
+  tasks:
+    - name: update hostnames on "app"
+      when: ansible_hostname == "application"
+      hostname:
+        name: application
+
+    - name: update hostnames on "db"
+      when: ansible_hostname == "databade"
+      hostname:
+        name: database

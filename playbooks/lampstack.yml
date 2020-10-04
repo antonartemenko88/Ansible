@@ -1,0 +1,32 @@
+---
+- name: install LAMP stack
+  hosts: development
+  tasks: 
+  - name: Update All Packages
+    yum:
+      name: "*"
+      state: latest
+
+  - name: Install packages on Application Services
+    when: ansible_hostname == "application"
+    yum:
+      name:
+        - httpd
+        - php
+        - php-mysql
+      state: latest
+
+  - name: Insatll packages on Database server
+    when: ansible_hostname == 'database'
+    yum:
+      name:
+        - mariadb-server
+        - mariadb        
+      state: latest
+
+  - name: Start HTTPD on Application server
+    when: ansible_hostname == "application"
+    systemd: 
+      name: httpd
+      state: started
+      enabled: yes
