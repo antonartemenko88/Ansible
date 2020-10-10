@@ -1,6 +1,7 @@
 ---
   - name: This is playbook
-    hosts: production
+    hosts: development
+    gather_facts: no
     tasks:
-      - name: Ping hosts
+      - name: Ping Hosts
         ping:

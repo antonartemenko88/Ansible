@@ -3,3 +3,10 @@
 inventory
 *inventory
 inventory*
+
+# ignor variables folder
+variables
+*variables
+variables*
+var
+var*
