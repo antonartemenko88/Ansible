@@ -1,0 +1,20 @@
+- name: Service Facts
+  service_facts:
+  when: ansible_hostname == "db"
+
+- debug:
+    var: ansible_facts.services["httpd.service"].state
+  when: ansible_hostname == "db"
+
+
+- name: Stop apache
+  when: ansible_hostname == "db" and ansible_facts.services["httpd.service"].state == "running"
+  systemd:
+    name: httpd
+    state: stopped
+
+- name: Remove Apache
+  when: ansible_hostname == "db" and ansible_facts.services["httpd.service"].state == "running"
+  yum:
+    name: httpd
+    state: absent

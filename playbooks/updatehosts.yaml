@@ -1,0 +1,8 @@
+---
+  - name: Thes playbook will update all packages
+    hosts: dev-servers
+    tasks:
+      - name: Update all packages
+        yum:
+          name: '*'
+          state: latest

@@ -1,0 +1,14 @@
+---
+  - name: Run Jobs on Dev servers
+    hosts: "{{ group }}"
+    gather_facts: "{{ gather_facts }}"
+    vars_files:
+      - "../variables/dev-tasks-values.yaml"
+    tasks:
+      - include: ../tasks/ping.yaml
+      - include: ../tasks/apacheinstallation.yaml
+      - include: ../tasks/copyfiles.yaml
+      - include: ../tasks/removeapache.yaml
+
+  
+      

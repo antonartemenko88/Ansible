@@ -1,0 +1,6 @@
+---
+ - name: This playbook will reboot remote hosts
+   hosts: dev-servers
+   tasks:
+     - name: Unconditionally reboot the machine with all defaults
+       reboot:
